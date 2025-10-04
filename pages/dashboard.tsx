@@ -41,7 +41,7 @@ export default function DashboardPage() {
       }}
     >
       <Heading size="xl" mb={3}>
-        Dashboard Page{' '}
+        Dashboard Page
       </Heading>
       <VStack gap={5}>
         {galleries?.map((g) => (
