@@ -1082,15 +1082,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/faker@npm:^6":
-  version: 6.6.8
-  resolution: "@types/faker@npm:6.6.8"
-  dependencies:
-    faker: "npm:*"
-  checksum: 10c0/afd46dfb4c425b109acf5b09d3e15e9dea88a8da794c2090ae51dd7895e11015a69251bdb155117d518704189966eb15a556df4056e225a0ca7ffd15c658dded
-  languageName: node
-  linkType: hard
-
 "@types/json-schema@npm:^7.0.15":
   version: 7.0.15
   resolution: "@types/json-schema@npm:7.0.15"
@@ -2635,13 +2626,11 @@ __metadata:
     "@eslint/eslintrc": "npm:^3"
     "@faker-js/faker": "npm:^10.0.0"
     "@prisma/client": "npm:^6.16.3"
-    "@types/faker": "npm:^6"
     "@types/node": "npm:^20"
     "@types/react": "npm:^19"
     "@types/react-dom": "npm:^19"
     eslint: "npm:^9"
     eslint-config-next: "npm:15.5.0"
-    faker: "npm:^6.6.6"
     framer-motion: "npm:^12.23.22"
     next: "npm:15.5.0"
     prisma: "npm:^6.16.3"
@@ -3375,13 +3364,6 @@ __metadata:
   version: 1.0.7
   resolution: "exsolve@npm:1.0.7"
   checksum: 10c0/4479369d0bd84bb7e0b4f5d9bc18d26a89b6dbbbccd73f9d383d14892ef78ddbe159e01781055342f83dc00ebe90044036daf17ddf55cc21e2cac6609aa15631
-  languageName: node
-  linkType: hard
-
-"faker@npm:*, faker@npm:^6.6.6":
-  version: 6.6.6
-  resolution: "faker@npm:6.6.6"
-  checksum: 10c0/21f6a57adc921ffb61e5ff767024a699a414047264ff4bbb080bd4994ec5a8061e1828aae9a4be812f6f356f1b6fd082bc2d54df7c37163b943a421a8f7f7079
   languageName: node
   linkType: hard
 
