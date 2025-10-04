@@ -1,4 +1,4 @@
 {
-  "buildCommand": "yarn install && yarn build",
-  "installCommand": "yarn install"
+  "buildCommand": "yarn install --frozen-lockfile && yarn build",
+  "installCommand": "yarn install --frozen-lockfile"
 }
