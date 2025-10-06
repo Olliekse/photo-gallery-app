@@ -1,5 +1,6 @@
 import useSWR from 'swr';
-import { Flex, Heading, Box, VStack } from '@chakra-ui/react';
+import { Heading, Box, VStack } from '@chakra-ui/react';
+import { GalleryListItem } from 'components/GalleryListItem';
 
 // Define the Gallery type for better TypeScript support
 interface Gallery {
@@ -44,18 +45,8 @@ export default function DashboardPage() {
         Dashboard Page
       </Heading>
       <VStack gap={5}>
-        {galleries?.map((g) => (
-          <Flex
-            width="100%"
-            direction="row"
-            key={g.id}
-            borderRadius={10}
-            boxShadow="md"
-            bg="white"
-            p={3}
-          >
-            <Heading size="md">{g.name}</Heading>
-          </Flex>
+        {galleries?.map(({ name, id }) => (
+          <GalleryListItem name={name} key={id} />
         ))}
       </VStack>
     </Box>
