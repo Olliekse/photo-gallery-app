@@ -39,7 +39,7 @@ export const GalleryEditModal = ({
   onClose = () => {},
   onSubmit,
   defaultValues,
-  galleryId
+  galleryId,
 }: GalleryEditModalProps) => {
   const {
     register,
@@ -52,17 +52,16 @@ export const GalleryEditModal = ({
 
   const composedOnSubmit = (gallery) => {
     onSubmit(galleryId, gallery);
-  }
+  };
 
   useEffect(() => {
     reset(defaultValues);
-  }, [reset, defaultValues])
+  }, [reset, defaultValues]);
 
   return (
     <DialogRoot
       open={isOpen}
       onOpenChange={(details) => {
-        console.log('Dialog onOpenChange triggered:', details);
         if (!details.open) {
           onClose();
         }
@@ -103,7 +102,7 @@ export const GalleryEditModal = ({
             </DialogCloseTrigger>
             <DialogHeader p={6} pb={4}>
               {/* @ts-expect-error - Chakra UI v3 Dialog title type issue */}
-              <DialogTitle>Create New Gallery</DialogTitle>
+              <DialogTitle>Edit Gallery</DialogTitle>
             </DialogHeader>
             <DialogBody p={6} py={4}>
               <VStack gap={4} align="stretch">

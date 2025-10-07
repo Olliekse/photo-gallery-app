@@ -6,7 +6,7 @@ const headers = {
 };
 
 export async function all(): Promise<Gallery[]> {
-  const response = await fetch('/api/galleries/');
+  const response = await fetch('/api/galleries');
   const json = await response.json();
 
   if (!response.ok) {
@@ -37,7 +37,7 @@ export async function update(
     body: JSON.stringify(gallery),
   });
 
-  const json = response.json();
+  const json = await response.json();
 
   if (!response.ok) {
     throw json;

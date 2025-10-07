@@ -17,10 +17,12 @@ import { ErrorAlert } from 'components/ErrorAlert';
 import { GalleryEditModal } from 'components/GalleryEditModal';
 import { GalleryDeleteDialog } from 'components/GalleryDeleteDialog';
 
-// Define the Gallery type for better TypeScript support
 interface Gallery {
-  id: string;
+  id: number;
   name: string;
+  description: string;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 const fetcher = async (url: string): Promise<Gallery[]> => {
@@ -35,7 +37,7 @@ export default function DashboardPage() {
     isValidating: dashboardIsLoading,
     error: dashboardFetchError,
     mutate: mutateGalleries,
-  } = useSWR(`/api/galleries`);
+  } = useSWR(`/api/galleries`, fetcher);
 
   const {
     open: isGalleryCreateOpen,
@@ -44,24 +46,25 @@ export default function DashboardPage() {
   } = useDisclosure();
 
   const {
-    isOpen: isGalleryEditOpen,
+    open: isGalleryEditOpen,
     onClose: onGalleryEditClose,
     onOpen: onGalleryEditOpen,
   } = useDisclosure();
 
   const {
-    isOpen: isGalleryDeleteOpen,
+    open: isGalleryDeleteOpen,
     onClose: onGalleryDeleteClose,
     onOpen: onGalleryDeleteOpen,
   } = useDisclosure();
 
   const [currentGalleryForEditing, setCurrentGalleryForEditing] =
-    useState(null);
+    useState<Gallery | null>(null);
 
-  const [currentGalleryForDeletion, setCurrentGalleryForDeletion] =
-    useState(null);
+  const [currentGalleryForDeletion, setCurrentGalleryForDeletion] = useState<
+    number | null
+  >(null);
 
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     onGalleryEditOpen();
@@ -78,9 +81,10 @@ export default function DashboardPage() {
   const handleGalleryEdit = (e: React.MouseEvent, gallery) => {
     e.preventDefault();
     setCurrentGalleryForEditing(gallery);
+    onGalleryEditOpen();
   };
 
-  const handleGalleryEditSubmit = async (id, gallery) => {
+  const handleGalleryEditSubmit = async (id: number, gallery) => {
     try {
       await update(id, gallery);
       mutateGalleries();
@@ -91,13 +95,13 @@ export default function DashboardPage() {
     }
   };
 
-  const handleGalleryDelete = (e: React.MouseEvent, id: string) => {
+  const handleGalleryDelete = (e: React.MouseEvent, id: number) => {
     e.preventDefault();
     setCurrentGalleryForDeletion(id);
     onGalleryDeleteOpen();
   };
 
-  const handleGalleryDeleteSubmit = async (e, id) => {
+  const handleGalleryDeleteSubmit = async (e, id: number) => {
     e.preventDefault();
 
     try {
@@ -123,8 +127,8 @@ export default function DashboardPage() {
     }
   };
 
-  function handleErrorAlertClose(e: any): void {
-    throw new Error('Function not implemented.');
+  function handleErrorAlertClose(): void {
+    setError(null);
   }
 
   return (
@@ -166,7 +170,7 @@ export default function DashboardPage() {
             name={gallery.name}
             key={gallery.id}
             href={`/galleries/${gallery.id}`}
-            onDeleteClick={(e) => handleGalleryDelete(e, gallery)}
+            onDeleteClick={(e) => handleGalleryDelete(e, gallery.id)}
             onEditClick={(e) => handleGalleryEdit(e, gallery)}
           />
         ))}
@@ -191,9 +195,9 @@ export default function DashboardPage() {
       {currentGalleryForDeletion && (
         <GalleryDeleteDialog
           isOpen={isGalleryDeleteOpen}
-          onClose={onGalleryDeleteClose}
-          onSubmit={handleGalleryDeleteSubmit}
-          galleryId={currentGalleryForDeletion?.id}
+          onCloseClick={onGalleryDeleteClose}
+          onConfirmClick={handleGalleryDeleteSubmit}
+          galleryId={currentGalleryForDeletion}
         />
       )}
     </Box>

@@ -44,15 +44,6 @@ export const GalleryCreateModal = ({
     defaultValues: { name: '', description: '' },
   });
 
-  // const onFormSubmit = async (data: GalleryFormData) => {
-  //   try {
-  //     await onSubmit?.(data);
-  //     reset();
-  //     onClose();
-  //   } catch (err) {
-  //     console.error('Submit failed', err);
-  //   }
-  // };
 
   return (
     <DialogRoot
