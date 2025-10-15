@@ -13,4 +13,18 @@ model Gallery {
   description String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  photos      Photo[]
+}
+
+model Photo {
+  id                  Int     @id @default(autoincrement())
+  caption             String?
+  url                 String
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @default(now())
+  gallery             Gallery  @relation(fields: [galleryId], references: [id])
+  galleryId           Int
+  uploadcarePublicId  String
+  width               Int
+  height              Int
 }

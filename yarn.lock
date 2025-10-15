@@ -1038,6 +1038,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@symbiotejs/symbiote@npm:^1.11.7":
+  version: 1.11.7
+  resolution: "@symbiotejs/symbiote@npm:1.11.7"
+  checksum: 10c0/4cae3f98988185ad61561f37187c60a980e6b07a316e50858207b26e99b9d294a3105534d9eec03c5a0b786679cc85b43c60506c57bfcf588e4c3986e7ec7837
+  languageName: node
+  linkType: hard
+
 "@tsconfig/node10@npm:^1.0.7":
   version: 1.0.11
   resolution: "@tsconfig/node10@npm:1.0.11"
@@ -1399,6 +1406,68 @@ __metadata:
   version: 1.11.1
   resolution: "@unrs/resolver-binding-win32-x64-msvc@npm:1.11.1"
   conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@uploadcare/cname-prefix@npm:^6.17.0":
+  version: 6.18.0
+  resolution: "@uploadcare/cname-prefix@npm:6.18.0"
+  checksum: 10c0/2420f9a0f8731e2a843ceeef36bf6d8a7de5871e56fba225ac7cc7e422e27499172fbde96bd4d87a9e964d49ac150e18fa6c263821f5236b4c89d7a3aefb14d4
+  languageName: node
+  linkType: hard
+
+"@uploadcare/file-uploader@npm:1.19.5":
+  version: 1.19.5
+  resolution: "@uploadcare/file-uploader@npm:1.19.5"
+  dependencies:
+    "@symbiotejs/symbiote": "npm:^1.11.7"
+    "@uploadcare/cname-prefix": "npm:^6.17.0"
+    "@uploadcare/image-shrink": "npm:^6.17.0"
+    "@uploadcare/upload-client": "npm:^6.17.0"
+    keyux: "npm:^0.7.1"
+  checksum: 10c0/b5972e1ec7cc10ba050b5fb7c12214fffc456751ffcd9c2e6b851d4d1b0d23be76cff22f43635ea45d987832ebba8e5ba303285eb94e5b0fe64137a3a4a517c2
+  languageName: node
+  linkType: hard
+
+"@uploadcare/image-shrink@npm:^6.17.0":
+  version: 6.18.0
+  resolution: "@uploadcare/image-shrink@npm:6.18.0"
+  checksum: 10c0/d812d739731195a6041b164c0601bf51320ecdd368c4644058924093f0ec45446508942e45de59a35d2820fe05e066a27dcdde2ea516fb7d4d312bce538caf6a
+  languageName: node
+  linkType: hard
+
+"@uploadcare/react-adapter@npm:^0.3.1":
+  version: 0.3.1
+  resolution: "@uploadcare/react-adapter@npm:0.3.1"
+  peerDependencies:
+    "@types/react": ">= 17.0.0"
+  checksum: 10c0/3dceae19ef040b5db4a7380a9228b837f37459325e0ca7ed647bbdddb4cb140f2dce5a5a910e832752cdb354adceba09fa84f203d366cabd88d83ecdfcffcb72
+  languageName: node
+  linkType: hard
+
+"@uploadcare/react-uploader@npm:^1.10.2":
+  version: 1.10.2
+  resolution: "@uploadcare/react-uploader@npm:1.10.2"
+  dependencies:
+    "@uploadcare/file-uploader": "npm:1.19.5"
+    "@uploadcare/react-adapter": "npm:^0.3.1"
+    next: "npm:>= 13.0.0"
+  peerDependencies:
+    "@types/react": ">= 17.0.0"
+  dependenciesMeta:
+    next:
+      optional: true
+  checksum: 10c0/4a788d1f3773d3a2beedd51407fa65d0219c90127163b6ce0587826f2e9201843dde17123729f204c28e29931f39aa73200abcacea1ded33c1f6fb68bc64bf47
+  languageName: node
+  linkType: hard
+
+"@uploadcare/upload-client@npm:^6.17.0":
+  version: 6.18.0
+  resolution: "@uploadcare/upload-client@npm:6.18.0"
+  dependencies:
+    form-data: "npm:^4.0.0"
+    ws: "npm:^8.2.3"
+  checksum: 10c0/775da208d44cb6b45f35625ea415de09c474dc4940ffff13295852da894e92a5d9beed3a1dd0a0ee143c6c75df83367b058b3bbfe076360e540d7abd735e4126
   languageName: node
   linkType: hard
 
@@ -2457,6 +2526,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"asynckit@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "asynckit@npm:0.4.0"
+  checksum: 10c0/d73e2ddf20c4eb9337e1b3df1a0f6159481050a5de457c55b14ea2e5cb6d90bb69e004c9af54737a5ee0917fcf2c9e25de67777bbe58261847846066ba75bc9d
+  languageName: node
+  linkType: hard
+
 "available-typed-arrays@npm:^1.0.7":
   version: 1.0.7
   resolution: "available-typed-arrays@npm:1.0.7"
@@ -2629,6 +2705,7 @@ __metadata:
     "@types/node": "npm:^20"
     "@types/react": "npm:^19"
     "@types/react-dom": "npm:^19"
+    "@uploadcare/react-uploader": "npm:^1.10.2"
     eslint: "npm:^9"
     eslint-config-next: "npm:15.5.0"
     framer-motion: "npm:^12.23.22"
@@ -2674,6 +2751,15 @@ __metadata:
   version: 1.1.4
   resolution: "color-name@npm:1.1.4"
   checksum: 10c0/a1a3f914156960902f46f7f56bc62effc6c94e84b2cae157a526b1c1f74b677a47ec602bf68a61abfa2b42d15b7c5651c6dbe72a43af720bc588dff885b10f95
+  languageName: node
+  linkType: hard
+
+"combined-stream@npm:^1.0.8":
+  version: 1.0.8
+  resolution: "combined-stream@npm:1.0.8"
+  dependencies:
+    delayed-stream: "npm:~1.0.0"
+  checksum: 10c0/0dbb829577e1b1e839fa82b40c07ffaf7de8a09b935cadd355a73652ae70a88b4320db322f6634a4ad93424292fa80973ac6480986247f1734a1137debf271d5
   languageName: node
   linkType: hard
 
@@ -2844,6 +2930,13 @@ __metadata:
   version: 6.1.4
   resolution: "defu@npm:6.1.4"
   checksum: 10c0/2d6cc366262dc0cb8096e429368e44052fdf43ed48e53ad84cc7c9407f890301aa5fcb80d0995abaaf842b3949f154d060be4160f7a46cb2bc2f7726c81526f5
+  languageName: node
+  linkType: hard
+
+"delayed-stream@npm:~1.0.0":
+  version: 1.0.0
+  resolution: "delayed-stream@npm:1.0.0"
+  checksum: 10c0/d758899da03392e6712f042bec80aa293bbe9e9ff1b2634baae6a360113e708b91326594c8a486d475c69d6259afb7efacdc3537bfcda1c6c648e390ce601b19
   languageName: node
   linkType: hard
 
@@ -3514,6 +3607,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"form-data@npm:^4.0.0":
+  version: 4.0.4
+  resolution: "form-data@npm:4.0.4"
+  dependencies:
+    asynckit: "npm:^0.4.0"
+    combined-stream: "npm:^1.0.8"
+    es-set-tostringtag: "npm:^2.1.0"
+    hasown: "npm:^2.0.2"
+    mime-types: "npm:^2.1.12"
+  checksum: 10c0/373525a9a034b9d57073e55eab79e501a714ffac02e7a9b01be1c820780652b16e4101819785e1e18f8d98f0aee866cc654d660a435c378e16a72f2e7cac9695
+  languageName: node
+  linkType: hard
+
 "framer-motion@npm:^12.23.22":
   version: 12.23.22
   resolution: "framer-motion@npm:12.23.22"
@@ -4165,6 +4271,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"keyux@npm:^0.7.1":
+  version: 0.7.2
+  resolution: "keyux@npm:0.7.2"
+  checksum: 10c0/31e52969214c9afdd35bb45bdb5343b9d96b081d45be131e25c5418cd02fe0f3cab4a645c3386b3c67d4cbdfedab6e3f8cb17785e5b8c96eb15817f8cd14ad41
+  languageName: node
+  linkType: hard
+
 "keyv@npm:^4.5.4":
   version: 4.5.4
   resolution: "keyv@npm:4.5.4"
@@ -4265,6 +4378,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"mime-db@npm:1.52.0":
+  version: 1.52.0
+  resolution: "mime-db@npm:1.52.0"
+  checksum: 10c0/0557a01deebf45ac5f5777fe7740b2a5c309c6d62d40ceab4e23da9f821899ce7a900b7ac8157d4548ddbb7beffe9abc621250e6d182b0397ec7f10c7b91a5aa
+  languageName: node
+  linkType: hard
+
+"mime-types@npm:^2.1.12":
+  version: 2.1.35
+  resolution: "mime-types@npm:2.1.35"
+  dependencies:
+    mime-db: "npm:1.52.0"
+  checksum: 10c0/82fb07ec56d8ff1fc999a84f2f217aa46cb6ed1033fefaabd5785b9a974ed225c90dc72fff460259e66b95b73648596dbcc50d51ed69cdf464af2d237d3149b2
+  languageName: node
+  linkType: hard
+
 "minimatch@npm:^3.1.2":
   version: 3.1.2
   resolution: "minimatch@npm:3.1.2"
@@ -4338,7 +4467,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next@npm:15.5.0":
+"next@npm:15.5.0, next@npm:>= 13.0.0":
   version: 15.5.0
   resolution: "next@npm:15.5.0"
   dependencies:
@@ -5708,6 +5837,21 @@ __metadata:
   version: 1.2.5
   resolution: "word-wrap@npm:1.2.5"
   checksum: 10c0/e0e4a1ca27599c92a6ca4c32260e8a92e8a44f4ef6ef93f803f8ed823f486e0889fc0b93be4db59c8d51b3064951d25e43d434e95dc8c960cc3a63d65d00ba20
+  languageName: node
+  linkType: hard
+
+"ws@npm:^8.2.3":
+  version: 8.18.3
+  resolution: "ws@npm:8.18.3"
+  peerDependencies:
+    bufferutil: ^4.0.1
+    utf-8-validate: ">=5.0.2"
+  peerDependenciesMeta:
+    bufferutil:
+      optional: true
+    utf-8-validate:
+      optional: true
+  checksum: 10c0/eac918213de265ef7cb3d4ca348b891a51a520d839aa51cdb8ca93d4fa7ff9f6ccb339ccee89e4075324097f0a55157c89fa3f7147bde9d8d7e90335dc087b53
   languageName: node
   linkType: hard
 

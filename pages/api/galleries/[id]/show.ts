@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
@@ -8,6 +8,11 @@ export default async function handler(req, res) {
   async function main() {
     const gallery = await prisma.gallery.findUnique({
       where: { id },
+      include: {
+        photos: {
+          orderBy: { createdAt: 'desc' },
+        },
+      },
     });
 
     return res.status(200).json(gallery);
