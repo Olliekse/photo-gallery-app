@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## CITJS Photo App
 
-## Getting Started
+A simple photo galleries app built with Next.js, Prisma, Chakra UI, SWR, and Uploadcare.
 
-First, run the development server:
+### Tech Stack
+
+- Next.js 15 (Turbopack)
+- TypeScript
+- Prisma (PostgreSQL)
+- Chakra UI
+- SWR
+- Uploadcare React Uploader
+
+### Prerequisites
+
+- Node.js 18+
+- A PostgreSQL database (or a compatible connection string)
+- Uploadcare account for public/secret keys
+
+### Environment Variables
+
+Create a `.env` file in the project root:
+
+```bash
+DATABASE_URL="postgresql://USER:PASSWORD@HOST:PORT/DB?schema=public"
+UPLOADCARE_PUBLIC_KEY="your_uploadcare_public_key"
+UPLOADCARE_SECRET_KEY="your_uploadcare_secret_key"
+```
+
+### Install
+
+```bash
+npm install
+```
+
+### Database
+
+- Generate client: `npm run postinstall` (runs automatically) or `npx prisma generate`
+- Apply migrations: `npm run db:migrate:prod` (or `npx prisma migrate deploy`)
+- Reset and seed (local only): `npm run db:reset` and `npm run db:seed`
+
+### Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build and Start
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+### Features
 
-To learn more about Next.js, take a look at the following resources:
+- Create galleries
+- Upload images to Uploadcare from the gallery page
+- View gallery images in a responsive grid
+- Delete photos (removes from Uploadcare and DB)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Key Commands
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `npm run dev` – start dev server
+- `npm run build` – Prisma generate + Next build
+- `npm run start` – start production server
+- `npm run db:seed` – seed sample data
+- `npm run db:migrate:prod` – apply migrations in prod
+- `npm run db:reset` – reset DB and re-seed locally
 
-## Deploy on Vercel
+### Configuration Notes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Next Image remote patterns are configured in `next.config.ts` for Uploadcare CDN.
+- If you see a Turbopack workspace root warning about multiple lockfiles, either remove extra lockfiles or set `turbopack.root` in `next.config.ts`.
+- Prisma `package.json#prisma` configuration is deprecated; consider migrating to a dedicated Prisma config file in future updates.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Project Structure (high level)
+
+- `pages/` – Next pages and API routes
+- `components/` – UI components
+- `lib/` – client/server utilities and API wrappers
+- `prisma/` – schema and migrations
+- `middleware/` – request utilities (Prisma injection, method guard)
+
+### Uploadcare
+
+- Public signing endpoint: `POST /api/photos/sign`
+- Client uploader: `components/PhotoUploader/`
+- Photos persist via `POST /api/galleries/[id]/photos/create`
+
+### Troubleshooting
+
+- Ensure all env vars are set. Uploadcare helpers will throw if keys are missing.
+- For multiple lockfile warnings, remove redundant lockfiles or configure `turbopack.root`.
+- If uploads fail, verify Uploadcare keys and that the Next Image remote pattern matches your CDN hostname.

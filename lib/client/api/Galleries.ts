@@ -7,7 +7,7 @@ const headers = {
 
 export async function all(): Promise<Gallery[]> {
   const response = await fetch('/api/galleries');
-  const json = await response.json();
+  const json = (await response.json()) as Gallery[];
 
   if (!response.ok) {
     throw json;
@@ -17,8 +17,8 @@ export async function all(): Promise<Gallery[]> {
 }
 
 export async function get(id: number): Promise<Gallery> {
-  const response = await fetch(`/api/galleries/${id}}`);
-  const json = await response.json();
+  const response = await fetch(`/api/galleries/${id}`);
+  const json = (await response.json()) as Gallery;
 
   if (!response.ok) {
     throw json;
@@ -37,7 +37,7 @@ export async function update(
     body: JSON.stringify(gallery),
   });
 
-  const json = await response.json();
+  const json = (await response.json()) as Gallery;
 
   if (!response.ok) {
     throw json;
@@ -55,7 +55,7 @@ export async function create(
     headers,
   });
 
-  const json = await response.json();
+  const json = (await response.json()) as Gallery;
 
   if (!response.ok) {
     throw json;
@@ -70,7 +70,7 @@ export async function destroy(id: number): Promise<Gallery> {
     headers,
   });
 
-  const json = await response.json();
+  const json = (await response.json()) as Gallery;
 
   if (!response.ok) {
     throw json;

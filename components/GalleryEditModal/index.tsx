@@ -18,7 +18,6 @@ import {
 } from '@chakra-ui/react';
 import { FaTimes } from 'react-icons/fa';
 import { useForm } from 'react-hook-form';
-import { Gallery } from '@prisma/client';
 import { useEffect } from 'react';
 
 interface GalleryFormData {
@@ -29,8 +28,8 @@ interface GalleryFormData {
 interface GalleryEditModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onSubmit?: (galleryId, gallery: Gallery) => void;
-  defaultValues: Gallery;
+  onSubmit?: (galleryId: number, gallery: GalleryFormData) => void;
+  defaultValues: GalleryFormData;
   galleryId: number;
 }
 
@@ -50,8 +49,10 @@ export const GalleryEditModal = ({
     defaultValues: { name: '', description: '' },
   });
 
-  const composedOnSubmit = (gallery) => {
-    onSubmit(galleryId, gallery);
+  const composedOnSubmit = (gallery: GalleryFormData) => {
+    if (onSubmit) {
+      onSubmit(galleryId, gallery);
+    }
   };
 
   useEffect(() => {
